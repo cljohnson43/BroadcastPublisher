@@ -1,4 +1,4 @@
 package com.example.broadcastpublisher.messages
 
-class FragmetoneMessage(val msg: String) {
+class FragmentOneMessage(val msg: String) {
 }

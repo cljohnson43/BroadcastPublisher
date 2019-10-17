@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.example.broadcastpublisher.R
-import org.greenrobot.eventbus.EventBus
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,22 +14,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         setupFrags()
-
-        subscribe()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        unSubscribe()
-    }
-
-    fun subscribe() {
-        EventBus.getDefault().register(this)
-    }
-
-    fun unSubscribe() {
-        EventBus.getDefault().unregister(this)
     }
 
     fun setupFrags() {
