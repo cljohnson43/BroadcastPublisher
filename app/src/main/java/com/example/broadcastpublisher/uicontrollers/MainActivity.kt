@@ -4,6 +4,7 @@ import android.Manifest
 import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.content.IntentFilter
+import android.media.AudioManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         registerReceiver(configurationChange, IntentFilter(Intent.ACTION_CONFIGURATION_CHANGED))
         registerReceiver(bluetoothDiscoveryStarted, IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_STARTED))
         registerReceiver(bluetoothDiscoveryFinished, IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED))
-        //registerReceiver(ringerMode, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
+        registerReceiver(ringerMode, IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION))
 
     }
 
@@ -53,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         unregisterReceiver(configurationChange)
         unregisterReceiver(bluetoothDiscoveryFinished)
         unregisterReceiver(bluetoothDiscoveryStarted)
-        //unregisterReceiver(ringerMode)
+        unregisterReceiver(ringerMode)
     }
 
     fun setupFrags() {
