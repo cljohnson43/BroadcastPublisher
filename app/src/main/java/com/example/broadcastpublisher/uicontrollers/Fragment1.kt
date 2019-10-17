@@ -42,6 +42,6 @@ class Fragment1 : Fragment() {
 
     @Subscribe
     fun onMessageReceived(message: FragmentOneMessage) {
-        tv_label.text = "Message Received: ${message.msg}"
+        tv_message.text = "Fragment 1 Message: ${message.msg}"
     }
 }

@@ -9,6 +9,8 @@ import com.example.broadcastpublisher.R
 import com.example.broadcastpublisher.messages.FragmentOneMessage
 import com.example.broadcastpublisher.messages.FragmentTwoMessage
 import kotlinx.android.synthetic.main.fragment_one.*
+import kotlinx.android.synthetic.main.fragment_one.tv_message
+import kotlinx.android.synthetic.main.fragment_two.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
@@ -43,6 +45,6 @@ class Fragment2 : Fragment() {
 
     @Subscribe
     fun onMessageReceived(message: FragmentTwoMessage) {
-        tv_label.text = "Message Received: ${message.msg}"
+        tv_message.text = "Fragment 2 Message: ${message.msg}"
     }
 }
