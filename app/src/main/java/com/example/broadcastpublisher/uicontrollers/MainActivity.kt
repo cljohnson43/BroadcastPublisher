@@ -1,6 +1,7 @@
 package com.example.broadcastpublisher.uicontrollers
 
 import android.Manifest
+import android.bluetooth.BluetoothAdapter
 import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
@@ -40,18 +41,18 @@ class MainActivity : AppCompatActivity() {
 
     fun registerReceivers() {
         registerReceiver(airplaneMode, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
+        registerReceiver(configurationChange, IntentFilter(Intent.ACTION_CONFIGURATION_CHANGED))
+        registerReceiver(bluetoothDiscoveryStarted, IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_STARTED))
+        registerReceiver(bluetoothDiscoveryFinished, IntentFilter(BluetoothAdapter.ACTION_DISCOVERY_FINISHED))
         //registerReceiver(ringerMode, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
-        //registerReceiver(configurationChange, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
-        //registerReceiver(bluetoothDiscoveryStarted, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
-        //registerReceiver(bluetoothDiscoveryFinished, IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED))
 
     }
 
     fun unRegisterReceivers() {
         unregisterReceiver(airplaneMode)
-        //unregisterReceiver(configurationChange)
-        //unregisterReceiver(bluetoothDiscoveryFinished)
-        //unregisterReceiver(bluetoothDiscoveryStarted)
+        unregisterReceiver(configurationChange)
+        unregisterReceiver(bluetoothDiscoveryFinished)
+        unregisterReceiver(bluetoothDiscoveryStarted)
         //unregisterReceiver(ringerMode)
     }
 
